@@ -1,0 +1,25 @@
+header.header
+    .container.header__container
+        a.header__logo(href='index.html')
+            include ../../img/logo.svg
+
+        nav.header__nav.header-nav
+            ul.header-nav__list
+                li.header-nav__item
+                    a.header-nav__link(href='/') Обо мне
+                li.header-nav__item
+                    a.header-nav__link(href='##') Услуги
+                li.header-nav__item
+                    a.header-nav__link(href='##') Материалы
+                li.header-nav__item
+                    a.header-nav__link(href='##') Издательство
+
+            a.header-nav__tg(href="") Telegram-канал
+                include ../../img/icons/tg.svg
+
+
+
+        button(type="button").header__burger
+            span.header__burger-line.header__burger-line-1
+            span.header__burger-line.header__burger-line-2
+            span.header__burger-line.header__burger-line-3
