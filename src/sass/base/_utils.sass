@@ -1,14 +1,20 @@
+@import "containers"
+
 section
   scroll-margin: 130px
-  @media (max-width: $width-mobile)
+  @include mobile
     scroll-margin: 80px
 
 
 .title-section
-  font-size: 24px
-  @media (max-width: $width-mobile)
+  font-family: "ViaodaLibre", sans-serif
+  text-transform: uppercase
+  @include fontSize(36, 64)
+  color: $primary
+  margin-bottom: 32px
+  @include mobile
+    text-transform: initial
     margin-bottom: 24px
-    font-size: 20px
 
 .flex-center
   display: flex
@@ -41,17 +47,52 @@ section
 
 .scroll-margin
   scroll-margin: 120px
-  @media (max-width: $width-mobile)
+  @include mobile
     scroll-margin: 70px
 
-.desktop-hidden
-  @media (min-width: $width-mobile)
-    display: none
 
-.mobile-hidden
-  @media (max-width: $width-mobile)
-    display: none
+.blockquote
+  display: inline-flex
+  gap: 20px
+  position: relative
+  @include fontSize(14, 16)
+  &::before,
+  &::after
+    content: ""
+    display: inline-block
+    width: 50px
+    height: 40px
+    flex: 0 0 50px
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center
+    @include tablet
+      width: 40px
+      height: 32px
+      flex: 0 0 40px
+  &::after
+    margin-top: auto
+    transform: rotate(180deg)
+  &.blockquote--light
+    &::before,
+    &::after
+      background-image: url("../img/icons/quotes-open-grey.svg")
+  &.blockquote--primary
+    &::before,
+    &::after
+      background-image: url("../img/icons/quotes-open-primary.svg")
 
-.tablet-hidden
-  @media (min-width: $width-tablet)
-    display: none
+  &__inner
+    display: flex
+    flex-direction: column
+    gap: 4px
+
+  blockquote
+    font-style: italic
+  cite
+    font-weight: 500
+    font-style: normal
+
+
+
+
