@@ -12,6 +12,7 @@ section
   @include fontSize(36, 64)
   color: $primary
   margin-bottom: 32px
+  line-height: 1.1
   @include mobile
     text-transform: initial
     margin-bottom: 24px
@@ -92,6 +93,36 @@ section
   cite
     font-weight: 500
     font-style: normal
+
+.semibold
+  font-weight: 600
+
+
+.note
+  display: flex
+  flex-direction: column
+  gap: 40px
+  position: relative
+  font-style: italic
+  width: 40%
+  @include fontSize(24, 32)
+  margin: 30px 20px 30px 80px
+  float: right
+  text-align: left
+  @include tablet
+    margin: 40px
+  @include mobile
+    display: none
+  &::before
+    content: ""
+    display: inline-block
+    background-image: url("../img/icons/note-decor.svg")
+    width: 260px
+    height: 14px
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+
 
 
 

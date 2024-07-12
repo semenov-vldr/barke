@@ -1,3 +1,5 @@
+@import "mixins"
+
 @mixin font-face($font-name, $font-name-weight, $weight: 400, $style: normal)
   @font-face
     font-family: $font-name
@@ -19,9 +21,7 @@ $font-name: "Raleway"
 @include font-face($font-name, SemiBold-Italic, 600, italic)
 @include font-face($font-name, Bold, 700)
 
-
 @include font-face("ViaodaLibre", Regular)
-
 
 
 
@@ -30,5 +30,5 @@ html
   font-weight: 400
   -webkit-text-size-adjust: none
   line-height: 1.3
-  font-size: 20px
+  @include fontSize(14, 20)
 
