@@ -85,9 +85,19 @@
       opacity: 0.8
 
     &__tg
+      position: relative
       display: flex
       align-items: center
       gap: 10px
+      &::after
+        content: ""
+        display: inline-block
+        background-image: url("../img/icons/tg.svg")
+        width: 24px
+        height: 24px
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
       @media (min-width: 1100px)
         padding-right: 16px
 

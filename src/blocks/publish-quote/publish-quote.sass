@@ -1,0 +1,30 @@
+.publish-quote
+  padding: 60px 0
+  @include mobile
+    padding: 0
+
+  &__blockquote-header
+    @include fontSize(20, 24)
+    font-weight: 500
+    margin-bottom: 20px
+
+  &__blockquote
+    &::after,
+    &::before
+      width: 100px
+      height: 80px
+      flex: 0 0 100px
+      @include tablet
+        width: 43px
+        height: 34px
+        flex: 0 0 43px
+    @include mobile
+      flex-direction: column
+      &::after
+        margin-left: auto
+
+
+  blockquote
+    @include fontSize(14, 20)
+    line-height: 1.6
+    font-style: italic
