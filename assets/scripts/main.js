@@ -403,16 +403,3 @@ function mobileNav() {
   });
 }
 mobileNav();
-"use strict";
-
-function hideLoader() {
-  var loader = document.getElementById('loader');
-  if (loader) {
-    loader.classList.add('hide');
-    setTimeout(function () {
-      loader.remove();
-    }, 500);
-  }
-}
-;
-window.addEventListener('load', hideLoader);
