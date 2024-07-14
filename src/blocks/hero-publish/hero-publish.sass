@@ -12,15 +12,20 @@
     align-items: center
 
   &__title
-    color: $color
+    @include fontSize(40, 72)
 
   &__subtitle
     @include fontSize(24, 48)
     font-weight: 300
     line-height: 1
     margin-bottom: 30px
+    color: $primary
     @include mobile
       margin-bottom: 10px
+
+  &__note
+    @include fontSize(16, 24)
+    font-weight: 500
 
   &__tg
     margin-top: 60px
