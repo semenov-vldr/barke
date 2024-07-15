@@ -1,15 +1,7 @@
 section.feedback
     .feedback__container.container
         .feedback__body
-            form.feedback__form
-                .feedback__form-header
-                    h3.feedback__form-title Напишите мне
-                    p.feedback__form-subtitle через эту форму, и я Вам обязательно&nbsp;отвечу
-
-                input.feedback__form-input(type="text" placeholder="Ваше имя" minlength="3" required)
-                input.feedback__form-input(type="text" placeholder="Телефон" minlength="15" data-tel-input required)
-                textarea.feedback__form-input(placeholder="Сообщение" rows="4")
-                button.feedback__form-submit(type="submit") Отправить
+            include feedback-form
 
             .feedback__info
                 p.feedback__info-email-text Напишите мне на почту и мы договоримся о встрече

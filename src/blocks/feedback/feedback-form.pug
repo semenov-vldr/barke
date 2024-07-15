@@ -1,0 +1,14 @@
+form.feedback__form.form
+    .feedback__form-header
+        h3.feedback__form-title Напишите мне
+        p.feedback__form-subtitle через эту форму, и я Вам обязательно&nbsp;отвечу
+
+    input.feedback__form-input(type="text" name="name" placeholder="Ваше имя" minlength="3" required)
+    input.feedback__form-input(type="text" name="phone" placeholder="Телефон" data-tel-input minlength="15" required)
+    textarea.feedback__form-input(placeholder="Сообщение" name="message" rows="4")
+    button.feedback__form-submit(type="submit") Отправить
+
+    .feedback__form-success
+        span Спасибо!
+        span Заявка заявка успешно отправлено
+        span Мы с вами свяжемся в течение 15 минут

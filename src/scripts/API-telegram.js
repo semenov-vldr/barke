@@ -1,6 +1,6 @@
 // Отправка данных формы в Телеграм
-const TOKEN = "6388509099:AAFIQyVlZ4MapEiXhH2vQJh8CyZFgFoJ_mA";
-const CHAT_ID = "-1002008090284";
+const TOKEN = "7449790241:AAFE9SLF2jaEoJ9gxAMUTAFI7yjlhJ1qRws";
+const CHAT_ID = "-1002192494433";
 const URL_API = `https://api.telegram.org/bot${ TOKEN }/sendMessage`;
 
 const forms = document.querySelectorAll("form.form");
@@ -11,23 +11,27 @@ if (forms) {
 function sendMessageTelegram (evt) {
   evt.preventDefault();
 
-  const typeConnection = this.querySelector(".form__connection-fieldset input[type='radio']:checked");
-  const successFormMessage = this.querySelector('.form__message--success');
-  const errorFormMessage = this.querySelector('.form__message--error');
+  const successFormMessage = this.querySelector('.feedback__form-success');
 
   function formSuccess () {
-    successFormMessage.classList.add('js-message-active');
+    successFormMessage.classList.add('js-popup-success');
+    setTimeout(() => {
+      successFormMessage.classList.remove('js-popup-success');
+    }, 5 * 1000);
   }
 
   function formError () {
-    errorFormMessage.classList.add('js-message-active');
+    alert("Ошибка при отправке формы. Перезвоните по телефону на сайте")
   }
 
 
-  let message = `<b>Заявка с сайта ***:</b>\n`;
+  let message = `<b>Заявка с сайта К.Барке:</b>\n`;
   message += `<b>Имя:</b> ${this.name.value}\n`;
-  message += `<b>Телефон:</b> ${this.tel.value}\n`;
-  message += `<b>Способ связи:</b> ${typeConnection.value}\n`;
+  message += `<b>Телефон:</b> ${this.phone.value}\n`;
+
+  if (this.message.value) {
+    message += `<b>Сообщение:</b> ${this.message.value}\n`;
+  }
 
 
 
@@ -38,11 +42,11 @@ function sendMessageTelegram (evt) {
   })
     .then( () => {
       console.log("Заявка отправлена");
-      //formSuccess();
+      formSuccess();
     })
     .catch(err => {
       console.warn(err);
-      //formError();
+      formError();
     })
     .finally(() => {
       console.log("Конец");
