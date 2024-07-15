@@ -1,8 +1,8 @@
 "use strict";
 
 // Отправка данных формы в Телеграм
-var TOKEN = "6388509099:AAFIQyVlZ4MapEiXhH2vQJh8CyZFgFoJ_mA";
-var CHAT_ID = "-1002008090284";
+var TOKEN = "7449790241:AAFE9SLF2jaEoJ9gxAMUTAFI7yjlhJ1qRws";
+var CHAT_ID = "-1002192494433";
 var URL_API = "https://api.telegram.org/bot".concat(TOKEN, "/sendMessage");
 var forms = document.querySelectorAll("form.form");
 if (forms) {
@@ -12,29 +12,32 @@ if (forms) {
 }
 function sendMessageTelegram(evt) {
   evt.preventDefault();
-  var typeConnection = this.querySelector(".form__connection-fieldset input[type='radio']:checked");
-  var successFormMessage = this.querySelector('.form__message--success');
-  var errorFormMessage = this.querySelector('.form__message--error');
+  var successFormMessage = this.querySelector('.feedback__form-success');
   function formSuccess() {
-    successFormMessage.classList.add('js-message-active');
+    successFormMessage.classList.add('js-popup-success');
+    setTimeout(function () {
+      successFormMessage.classList.remove('js-popup-success');
+    }, 5 * 1000);
   }
   function formError() {
-    errorFormMessage.classList.add('js-message-active');
+    alert("Ошибка при отправке формы. Перезвоните по телефону на сайте");
   }
-  var message = "<b>\u0417\u0430\u044F\u0432\u043A\u0430 \u0441 \u0441\u0430\u0439\u0442\u0430 ***:</b>\n";
+  var message = "<b>\u0417\u0430\u044F\u0432\u043A\u0430 \u0441 \u0441\u0430\u0439\u0442\u0430 \u041A.\u0411\u0430\u0440\u043A\u0435:</b>\n";
   message += "<b>\u0418\u043C\u044F:</b> ".concat(this.name.value, "\n");
-  message += "<b>\u0422\u0435\u043B\u0435\u0444\u043E\u043D:</b> ".concat(this.tel.value, "\n");
-  message += "<b>\u0421\u043F\u043E\u0441\u043E\u0431 \u0441\u0432\u044F\u0437\u0438:</b> ".concat(typeConnection.value, "\n");
+  message += "<b>\u0422\u0435\u043B\u0435\u0444\u043E\u043D:</b> ".concat(this.phone.value, "\n");
+  if (this.message.value) {
+    message += "<b>\u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435:</b> ".concat(this.message.value, "\n");
+  }
   axios.post(URL_API, {
     chat_id: CHAT_ID,
     parse_mode: "html",
     text: message
   }).then(function () {
     console.log("Заявка отправлена");
-    //formSuccess();
+    formSuccess();
   })["catch"](function (err) {
     console.warn(err);
-    //formError();
+    formError();
   })["finally"](function () {
     console.log("Конец");
   });
