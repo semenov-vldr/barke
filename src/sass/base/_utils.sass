@@ -31,7 +31,7 @@ section
   align-items: center
   gap: 40px
   @include mobile
-    margin: 0 0 32px
+    margin: 0 auto 32px
     gap: 30px
   &::after
     content: ""
@@ -46,32 +46,10 @@ section
       width: 150px
       height: 8px
 
-
-
-
-
 .flex-center
   display: flex
   align-items: center
   justify-content: center
-
-
-.button
-  position: relative
-  display: flex
-  align-items: center
-  justify-content: center
-  font-weight: 500
-  padding: 14px 32px
-  min-height: 42px
-  transition: $transition
-  line-height: 1
-  width: fit-content
-  font-size: 14px
-  border-radius: 32px
-  user-select: none
-  overflow: hidden
-  white-space: nowrap
 
 
 .font-decor
@@ -89,7 +67,6 @@ section
   display: inline-flex
   gap: 20px
   position: relative
-  @include fontSize(14, 16)
   &::before,
   &::after
     content: ""
@@ -123,6 +100,8 @@ section
 
   blockquote
     font-style: italic
+    @include fontSize(16, 20)
+    line-height: 1.5
   cite
     font-weight: 500
     font-style: normal
@@ -138,14 +117,12 @@ section
   position: relative
   font-style: italic
   width: 40%
-  @include fontSize(24, 32)
+  @include fontSize(18, 24)
   margin: 30px 20px 30px 80px
   float: right
   text-align: left
   @include tablet
     margin: 40px
-  @include mobile
-    display: none
   &::before
     content: ""
     display: inline-block
@@ -155,6 +132,17 @@ section
     background-size: cover
     background-position: center
     background-repeat: no-repeat
+    @include mobile
+      width: 150px
+      height: 8px
+  @include mobile
+    width: auto
+    float: initial
+    margin: 16px -16px
+    padding: 20px
+    gap: 20px
+    font-size: 18px
+    background-color: rgba($color, 0.04)
 
 
 .button-tg
@@ -173,6 +161,49 @@ section
     border-color: $color
     color: $bg
 
+.button-light
+  position: relative
+  display: flex
+  width: fit-content
+  align-items: center
+  gap: 16px
+  background-color: rgba($color, 0.04)
+  padding: 14px 40px
+  font-size: 16px
+  border-radius: 14px
+  transition: $transition
+  cursor: pointer
+  @include mobile
+    padding: 10px 20px
+  &:hover
+    background-color: rgba($color, 0.08)
+  &.button-light--arrow
+    &::before
+      content: ""
+      display: inline-block
+      background-image: url("../img/icons/arrow-left.svg")
+      background-repeat: no-repeat
+      background-position: center
+      background-size: contain
+      width: 24px
+      height: 24px
+
+
+.btn-up
+  position: fixed
+  right: 50px
+  bottom: 100px
+  transition: $transition
+  opacity: 0
+  visibility: hidden
+  z-index: 1
+  @include mobile
+    width: 50px
+    right: 16px
+    bottom: 50px
+  &.js-visible
+    opacity: 1
+    visibility: visible
 
 
 
