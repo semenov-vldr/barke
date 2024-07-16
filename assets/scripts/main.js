@@ -70,6 +70,44 @@ function toggleBlockScrollBody() {
 ;
 "use strict";
 
+var btnMore = document.querySelector(".btn-more");
+if (btnMore) {
+  var bibliographyItems = document.querySelectorAll(".article__bibliography-list li");
+  btnMore.addEventListener("click", function () {
+    bibliographyItems.forEach(function (item) {
+      return item.classList.add("js-show-more");
+    });
+    btnMore.remove();
+  });
+}
+"use strict";
+
+var goTopButton = document.querySelector('.btn-up');
+if (goTopButton) {
+  var goTop = function goTop() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  };
+  var trackScroll = function trackScroll() {
+    var offset = window.scrollY;
+    var coords = document.documentElement.clientHeight;
+    goTopButton.classList.toggle('js-visible', offset > coords / 3);
+  };
+  goTopButton.addEventListener('click', goTop);
+  window.addEventListener('scroll', trackScroll);
+  var body = document.body;
+  body.appendChild(goTopButton);
+  setTimeout(function () {
+    return body.appendChild(goTopButton);
+  }, 100);
+  ;
+  ;
+}
+"use strict";
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
