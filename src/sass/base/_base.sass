@@ -52,8 +52,10 @@ main.main
   display: flex
   flex-direction: column
   flex-grow: 1
-  gap: 60px
+  gap: 100px
   padding-bottom: 80px
+  @include tablet
+    gap: 60px
   @include mobile
     gap: 40px
     padding-bottom: 40px
