@@ -6,15 +6,6 @@ const gulp = require('gulp');
 require('./gulp/dev.js');
 
 
-
-
-// default (dev)
-// gulp.task('default', gulp.series(
-//   'clean:dev',
-//   gulp.parallel('pug:dev', 'sass:dev', 'images:dev', 'fonts:dev', 'files:dev', 'libs:dev', 'scripts:dev'),
-//   gulp.parallel('browser-sync:dev','watch:dev')
-// ));
-
 gulp.task('build', gulp.series(
   'clean:dev',
   gulp.parallel('pug:dev', 'images:dev', 'fonts:dev', 'files:dev', "style:libs:dev", 'sass:dev', 'scripts:libs:dev', 'scripts:dev'),

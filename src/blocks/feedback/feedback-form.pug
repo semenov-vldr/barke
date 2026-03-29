@@ -4,11 +4,15 @@ form.feedback__form.form
         p.feedback__form-subtitle через эту форму, и я Вам обязательно&nbsp;отвечу
 
     input.feedback__form-input(type="text" name="name" placeholder="Ваше имя" minlength="3" required)
-    input.feedback__form-input(type="text" name="phone" placeholder="Телефон" data-tel-input minlength="15" required)
+    input.feedback__form-input(type="text" name="phone" placeholder="Телефон" inputmode="tel" data-tel-input minlength="15" required)
     textarea.feedback__form-input(placeholder="Сообщение" name="message" rows="4")
+
+    label.feedback__form-checkbox
+        input(type="checkbox" name="success" checked)
+        span Даю согласие на обработку персональных данных
+
     button.feedback__form-submit(type="submit") Отправить
 
     .feedback__form-success
-        span Спасибо!
-        span Заявка заявка успешно отправлено
-        span Мы с вами свяжемся в течение 15 минут
+        span Спасибо за вашу заявку!
+        span До скорой связи!

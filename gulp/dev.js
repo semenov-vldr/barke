@@ -20,17 +20,6 @@ const changed =     require('gulp-changed');
 
 // ---- Tasks ----
 
-// Clean
-// gulp.task('clean:dev', function (done) {
-//   if (fs.existsSync('./build/')) {
-//     return gulp
-//       .src('./build/', {read: false})
-//       .pipe(clean());
-//   }
-//   done();
-// });
-
-
 gulp.task('clean:dev', function() {
   return gulp.src('build', {allowEmpty: true}).pipe(clean()); // Удаляем папку build перед сборкой
 });
@@ -69,7 +58,7 @@ gulp.task("sass:dev", function () { // Добавить autoprefixer, csso
     .pipe(sassGlob())
     .pipe(sass())
     .pipe(sourceMaps.write())
-    .pipe(concatCss("main.css"))
+    .pipe(concatCss("main-v1.css"))
     .pipe(gulp.dest("./build/assets/css/"))
     .pipe(browserSync.reload({
         stream: true,
@@ -124,7 +113,7 @@ gulp.task('scripts:dev', function () {
     .pipe(changed("./build/scripts/"))
     .pipe(plumber(plumberNotify("JS")))
     .pipe(babel())
-    .pipe(concatJs("main.js"))
+    .pipe(concatJs("main-v1.js"))
     .pipe(gulp.dest('./build/assets/scripts/'))
     .pipe(browserSync.reload({
         stream: true,
